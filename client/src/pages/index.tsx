@@ -1,14 +1,13 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import NavbarComponent from "../components/navbar";
-import SidebarComponent from "../components/sidebar";
+
+import React from "react";
+import { NextPage } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
-  return (
-    <div>
-      <NavbarComponent></NavbarComponent>
-    </div>
-  );
-}
+const Home: NextPage = () => {
+  return <div>Home</div>;
+};
+
+export default Home;
