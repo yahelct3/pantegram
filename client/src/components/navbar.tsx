@@ -9,13 +9,13 @@ export default function NavbarComponent() {
     "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png";
 
   return (
-    <div className="navbar bg-base-200">
+    <div className="navbar bg-neutral">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
             <FontAwesomeIcon icon={faBars} className="text-lg" />
           </label>
-          <ul className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-200 rounded-box w-52">
+          <ul className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-neutral rounded-box w-52">
             <li>
               <a>Homepage</a>
             </li>
@@ -35,7 +35,7 @@ export default function NavbarComponent() {
           </label>
           <ul
             tabIndex={0}
-            className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-200 rounded-box w-52"
+            className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-neutral rounded-box w-52"
           >
             <li>
               <a className="justify-between">
@@ -64,7 +64,7 @@ export default function NavbarComponent() {
           </label>
           <ul
             tabIndex={0}
-            className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-200 rounded-box w-96"
+            className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-neutral rounded-box w-96"
           >
             <li>
               <a className="justify-between">

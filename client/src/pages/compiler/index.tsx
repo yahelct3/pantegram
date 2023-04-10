@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Compiler: NextPage = () => {
   const [editor, onChangeEditor] = useState("");
+  let apiResult = "Please run your code.";
 
   return (
     <div className="flex justify-around m-5">
@@ -28,7 +29,7 @@ const Compiler: NextPage = () => {
           <textarea
             rows={30}
             cols={70}
-            className="input input-bordered input-secondary rounded-none rounded-br-md bg-base-200 w-full max-w-xl h-full overflow-hidden resize-none pl-2 pt-2"
+            className="input input-bordered input-secondary rounded-none rounded-br-md bg-base-300 w-full max-w-xl h-full overflow-hidden resize-none pl-2 pt-2"
             value={editor}
             onChange={(e) => onChangeEditor(e.target.value)}
           />
@@ -40,7 +41,7 @@ const Compiler: NextPage = () => {
           Result
         </div>
         <div className="input input-bordered input-accent rounded-none rounded-b-md bg-neutral text-bg-content w-full max-w-xl h-auto resize-none pl-2 py-2">
-          Please Run your code
+          {apiResult}
         </div>
       </div>
     </div>
