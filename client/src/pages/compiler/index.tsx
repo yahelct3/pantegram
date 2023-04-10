@@ -1,18 +1,37 @@
 import { NextPage } from "next";
-import { useState } from "react";
+import { use, useState } from "react";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import api from "../api/api";
 
 const Compiler: NextPage = () => {
   const [editor, onChangeEditor] = useState("");
-  let apiResult = "Please run your code.";
+  let [apiResult, setApiResult] = useState("Please run your code");
+
+  const executeCode = async (code: string) => {
+    try {
+      const result = (await api.compiler().execute(code)).data;
+
+      if (!result) {
+        setApiResult("No result, have you forgot to print?");
+      } else {
+        setApiResult(result);
+      }
+      
+    } catch (err) {
+      setApiResult("Error");
+    }
+  };
 
   return (
     <div className="flex justify-around m-5">
       <div className="flex flex-col mx-2">
         <div className="pl-1 py-1 bg-secondary text-accent-content rounded-t-md text-center flex justify-between">
           <div className="grow">Editor</div>
-          <div className="text-accent-content hover:text-neutral pr-3">
+          <div
+            className="text-accent-content hover:text-neutral pr-3"
+            onClick={() => executeCode(editor)}
+          >
             <FontAwesomeIcon icon={faPlay} className="text-lg" />
           </div>
         </div>
