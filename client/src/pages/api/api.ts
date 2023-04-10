@@ -5,15 +5,27 @@ const axiosInstance = axios.create({
   timeout: 2000,
 });
 
+const textToBinary = (str = "") => {
+  let res = "";
+  res = str
+    .split("")
+    .map((char) => {
+      return char.charCodeAt(0).toString(2);
+    })
+    .join(" ");
+  return res;
+};
+
 const api = {
   compiler: () => {
     return {
       execute: (code: string) => {
-        const encodedBase64 = Buffer.from(code, "binary").toString("base64");
+        const encoded = Buffer.from(code)
+          .toString("base64")
+          .replaceAll("=", "");
+        console.log(encoded);
 
-        return axiosInstance.post(
-          "/execute", encodedBase64
-        );
+        return axiosInstance.post("/execute", encoded);
       },
     };
   },
