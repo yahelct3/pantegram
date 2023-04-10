@@ -11,14 +11,13 @@ const Compiler: NextPage = () => {
   const executeCode = async (code: string) => {
     try {
       const result = (await api.compiler().execute(code)).data;
-
-      if (!result) {
+      if (result.length === 0) {
         setApiResult("No result, have you forgot to print?");
       } else {
         setApiResult(result);
       }
-      
     } catch (err) {
+      console.log(err);
       setApiResult("Error");
     }
   };
@@ -59,7 +58,7 @@ const Compiler: NextPage = () => {
         <div className="pl-1 pt-2 bg-accent text-accent-content rounded-t-md text-center">
           Result
         </div>
-        <div className="input input-bordered input-accent rounded-none rounded-b-md bg-neutral text-bg-content w-full max-w-xl h-auto resize-none pl-2 py-2">
+        <div className="input input-bordered input-accent rounded-none rounded-b-md bg-neutral text-bg-content w-full max-w-xl h-auto resize-none pl-2 py-2 whitespace-pre-wrap">
           {apiResult}
         </div>
       </div>
