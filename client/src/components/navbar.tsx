@@ -3,6 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faBell } from "@fortawesome/free-regular-svg-icons";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { faComputer } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 export default function NavbarComponent() {
   const defaultImg =
@@ -17,13 +20,12 @@ export default function NavbarComponent() {
           </label>
           <ul className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-neutral rounded-box w-52">
             <li>
-              <a>Homepage</a>
+              <Link href="/">
+                <FontAwesomeIcon icon={faHouse} className="text-lg" /> Homepage
+              </Link>
             </li>
             <li>
-              <a>Portfolio</a>
-            </li>
-            <li>
-              <a>About</a>
+              <Link href="/compiler"> <FontAwesomeIcon icon={faComputer} className="text-lg" /> Compiler</Link>
             </li>
           </ul>
         </div>
