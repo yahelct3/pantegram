@@ -10,27 +10,27 @@ public class AIService {
     public String determineWinner(char[] board) {
         // check rows
         for (int i = 0; i < 9; i += 3) {
-            if (board[i] == board[i+1] && board[i+1] == board[i+2] && board[i] != ' ') {
+            if (board[i] == board[i+1] && board[i+1] == board[i+2] && board[i] != '-') {
                 return Character.toString(board[i]);
             }
         }
         // check columns
         for (int j = 0; j < 3; j++) {
-            if (board[j] == board[j+3] && board[j+3] == board[j+6] && board[j] != ' ') {
+            if (board[j] == board[j+3] && board[j+3] == board[j+6] && board[j] != '-') {
                 return Character.toString(board[j]);
             }
         }
         // check diagonals
-        if (board[0] == board[4] && board[4] == board[8] && board[0] != ' ') {
+        if (board[0] == board[4] && board[4] == board[8] && board[0] != '-') {
             return Character.toString(board[0]);
         }
-        if (board[2] == board[4] && board[4] == board[6] && board[2] != ' ') {
+        if (board[2] == board[4] && board[4] == board[6] && board[2] != '-') {
             return Character.toString(board[2]);
         }
         // check for tie
         boolean isTie = true;
         for (int i = 0; i < 9; i++) {
-            if (board[i] == ' ') {
+            if (board[i] == '-') {
                 isTie = false;
                 break;
             }
@@ -51,7 +51,7 @@ public class AIService {
         return 0;
     }
 
-    private final char EMPTY_CELL = ' ';
+    private final char EMPTY_CELL = '-';
     private final char AI_CELL = 'X';
     private final char PLAYER_CELL = 'O';
 
@@ -78,7 +78,7 @@ public class AIService {
         return bestBoard;
     }
 
-    public int aiTurn(char[] originBoard){
+    private int aiTurn(char[] originBoard){
         char[] board = new char[originBoard.length];
         System.arraycopy(originBoard, 0, board, 0, originBoard.length);
         String winner = this.determineWinner(board);
@@ -103,7 +103,7 @@ public class AIService {
         return bestScore;
     }
 
-    public int playerTurn(char[] originBoard){
+    private int playerTurn(char[] originBoard){
         char[] board = new char[originBoard.length];
         System.arraycopy(originBoard, 0, board, 0, originBoard.length);
         String winner = this.determineWinner(board);
