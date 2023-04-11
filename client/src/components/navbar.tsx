@@ -12,7 +12,7 @@ export default function NavbarComponent() {
     "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png";
 
   return (
-    <div className="navbar bg-neutral">
+    <div className="navbar bg-neutral sticky top-0 z-50">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
