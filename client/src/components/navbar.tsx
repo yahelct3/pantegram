@@ -1,6 +1,6 @@
 import { Navbar } from "react-daisyui";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faGamepad } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faBell } from "@fortawesome/free-regular-svg-icons";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
@@ -26,6 +26,9 @@ export default function NavbarComponent() {
             </li>
             <li>
               <Link href="/compiler"> <FontAwesomeIcon icon={faComputer} className="text-lg" /> Compiler</Link>
+            </li>
+            <li>
+              <Link href="/tictactoe"> <FontAwesomeIcon icon={faGamepad} className="text-lg"/> TicTacToe</Link>
             </li>
           </ul>
         </div>
